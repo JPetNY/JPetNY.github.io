@@ -465,6 +465,93 @@
     50% { transform: scale(1.5); opacity: 0.7; }
   }
 
+  /* ─── WRITING ─── */
+  #writing { background: var(--bg); }
+
+  .writing-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem;
+  }
+
+  .writing-header .section-title { margin-bottom: 0; }
+
+  .writing-link {
+    font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none; font-weight: 600;
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+    transition: opacity 0.2s; white-space: nowrap;
+  }
+
+  .writing-link:hover { opacity: 0.7; }
+
+  .writing-restart-note {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.5rem;
+    font-size: 0.88rem; color: var(--muted);
+    margin-bottom: 2.5rem; line-height: 1.6;
+  }
+
+  .writing-restart-note strong { color: var(--accent); font-weight: 600; }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .article-card {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    padding: 2rem;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    transition: all 0.25s;
+    position: relative; overflow: hidden;
+  }
+
+  .article-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--accent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .article-card:hover { border-color: rgba(200,240,74,0.2); transform: translateY(-3px); }
+  .article-card:hover::after { transform: scaleX(1); }
+
+  .article-tag {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 0.75rem;
+  }
+
+  .article-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem; font-weight: 700;
+    line-height: 1.3; color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .article-desc {
+    font-size: 0.875rem; color: var(--muted);
+    line-height: 1.65; font-weight: 300; flex: 1;
+  }
+
+  .article-meta {
+    margin-top: 1.5rem;
+    font-size: 0.78rem; color: var(--muted);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .article-arrow {
+    color: var(--accent); font-size: 1rem;
+    transition: transform 0.2s;
+  }
+
+  .article-card:hover .article-arrow { transform: translateX(4px); }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
@@ -484,6 +571,8 @@
     #why { grid-template-columns: 1fr; gap: 2rem; }
     .why-cards { grid-template-columns: 1fr; padding-top: 0; }
 
+    .articles-grid { grid-template-columns: 1fr; }
+
     footer { flex-direction: column; gap: 1rem; text-align: center; }
   }
 </style>
@@ -497,6 +586,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#why">Why Me</a></li>
+    <li><a href="#writing">Writing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -707,6 +797,65 @@
       <div class="why-card-title">AI-Native Operator</div>
       <p class="why-card-body">Not just aware of AI — I integrate it into workflows, evaluations, and delivery pipelines to build faster and smarter at scale.</p>
     </div>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section id="writing">
+  <div class="writing-header">
+    <div>
+      <div class="section-label">Writing</div>
+      <h2 class="section-title">Thinking out loud.</h2>
+    </div>
+    <a href="https://medium.com/@jake_petralia" target="_blank" class="writing-link">All articles on Medium →</a>
+  </div>
+
+  <div class="writing-restart-note">
+    <strong>Restarting the blog</strong> — new content incoming on AI in the enterprise, cloud operations, and what it actually looks like to build and ship at the intersection of technical and business. Follow on Medium to stay updated.
+  </div>
+
+  <div class="articles-grid">
+
+    <a href="https://medium.com/@jake_petralia/common-ports-and-protocols-intro-to-computer-networking-e19003eb4460" target="_blank" class="article-card">
+      <div class="article-tag">Networking</div>
+      <div class="article-title">Common Ports and Protocols — Intro to Computer Networking</div>
+      <div class="article-desc">A breakdown of the logical networking ports and protocols found at Layer 4 of the OSI model — essential knowledge for any cloud or infrastructure practitioner.</div>
+      <div class="article-meta">
+        <span>Feb 2023</span>
+        <span class="article-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://medium.com/@jake_petralia/osi-model-intro-to-computer-networking-3eb250dd0b50" target="_blank" class="article-card">
+      <div class="article-tag">Networking</div>
+      <div class="article-title">OSI Model — Intro to Computer Networking</div>
+      <div class="article-desc">A practical look at the OSI Model and how it compares to TCP/IP — the foundational framework every systems and cloud engineer needs to understand cold.</div>
+      <div class="article-meta">
+        <span>Feb 2023</span>
+        <span class="article-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://medium.com/@jake_petralia/tcp-ip-model-intro-to-computer-networking-3313856fdd9c" target="_blank" class="article-card">
+      <div class="article-tag">Networking</div>
+      <div class="article-title">TCP/IP Model — Intro to Computer Networking</div>
+      <div class="article-desc">The TCP/IP model acts as a universal standard for computer networking. An accessible breakdown of how it works and why IT and security professionals rely on it daily.</div>
+      <div class="article-meta">
+        <span>Jan 2023</span>
+        <span class="article-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://medium.com/@jake_petralia/comptia-network-a-review-8827b0f18ca5" target="_blank" class="article-card">
+      <div class="article-tag">Certification</div>
+      <div class="article-title">CompTIA Network+: A Review</div>
+      <div class="article-desc">An honest review of the CompTIA Network+ certification — what it covers, who it's for, and whether it's worth the investment for engineers entering cloud and infrastructure roles.</div>
+      <div class="article-meta">
+        <span>Sep 2022</span>
+        <span class="article-arrow">→</span>
+      </div>
+    </a>
+
   </div>
 </section>
 
